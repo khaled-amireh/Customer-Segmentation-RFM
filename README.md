@@ -77,7 +77,7 @@ Side-by-side scatter plots illustrating customer distribution across Recency vs.
    * *Strategy:* Targeted win-back email campaigns and re-engagement promotional incentives.
 
 ---
-## 📈 Customer Segments Overview (RFM Analysis)
+##  Customer Segments Overview (RFM Analysis)
 
 Based on RFM scoring and unsupervised clustering, customers were categorized into actionable segments:
 
