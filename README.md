@@ -77,6 +77,17 @@ Side-by-side scatter plots illustrating customer distribution across Recency vs.
    * *Strategy:* Targeted win-back email campaigns and re-engagement promotional incentives.
 
 ---
+## 📈 Customer Segments Overview (RFM Analysis)
+
+Based on RFM scoring and unsupervised clustering, customers were categorized into actionable segments:
+
+| Cluster / Segment | Avg Recency (Days) | Avg Frequency (Orders) | Avg Monetary ($) | Recommended Marketing Strategy |
+| :--- | :---: | :---: | :---: | :--- |
+| **Champions / Best Customers** | Low (< 30) | High (> 15) | High (>$10,000) | VIP rewards, early access to new product releases. |
+| **Loyal Customers** | Moderate (30–90) | High (> 10) | Moderate-High | Upsell higher-value products, loyalty programs. |
+| **At Risk / Need Attention** | High (> 120) | Moderate | Moderate | Win-back promotional offers, targeted discounts. |
+| **Lost Customers** | Very High (> 250) | Low (1–2) | Low | Low-cost automated email campaigns. |
+---
 ## Author
 
 **Khaled Amireh**
