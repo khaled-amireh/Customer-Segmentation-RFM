@@ -77,3 +77,6 @@ Side-by-side scatter plots illustrating customer distribution across Recency vs.
    * *Strategy:* Targeted win-back email campaigns and re-engagement promotional incentives.
 
 ---
+## Author
+
+**Khaled Amireh**
