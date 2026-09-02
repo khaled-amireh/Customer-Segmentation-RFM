@@ -1,5 +1,7 @@
 #  Customer Segmentation using K-Means and Hierarchical Clustering
 
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
+
 An end-to-end unsupervised machine learning pipeline comparing **K-Means Clustering** and **Agglomerative Hierarchical Clustering** on online retail transactions (~1M records) using **RFM (Recency, Frequency, Monetary)** feature analysis.
 
 ---
