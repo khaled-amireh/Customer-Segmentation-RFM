@@ -174,7 +174,7 @@ Customer-Segmentation-RFM-Clustering/
 
 ---
 
-## ⚙️ Installation
+##  Installation
 
 ```bash
 # 1. Clone the repository
