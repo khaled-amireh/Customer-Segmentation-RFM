@@ -55,7 +55,7 @@ This project engineers **RFM (Recency, Frequency, Monetary)** features at the cu
 
 ---
 
-## 🧹 Data Preprocessing & Feature Engineering
+##  Data Preprocessing & Feature Engineering
 
 ```mermaid
 flowchart LR
