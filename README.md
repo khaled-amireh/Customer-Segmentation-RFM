@@ -202,7 +202,7 @@ jupyter notebook notebooks/customer_segmentation_rfm.ipynb
 
 ---
 
-## 🚀 Future Improvements
+##  Future Improvements
 
 - [ ] Incorporate product-category and channel-level features alongside RFM for richer segmentation
 - [ ] Evaluate DBSCAN or Gaussian Mixture Models as additional clustering approaches
