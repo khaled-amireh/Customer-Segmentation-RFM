@@ -144,7 +144,7 @@ This is the core deliverable of the project: each cluster isn't just a statistic
 
 ---
 
-## 🛠️ Technologies Used
+##  Technologies Used
 
 | Category | Tools |
 |---|---|
