@@ -135,7 +135,7 @@ The four data-driven clusters were mapped to actionable marketing personas, comb
 
 | Segment | Avg. Recency | Avg. Frequency | Avg. Monetary | Recommended Strategy |
 |---|:---:|:---:|:---:|---|
-| 🏆 **Champions / VIP** | Low (< 30 days) | High (> 15 orders) | High (> $10,000) | Exclusive VIP rewards, early access to new collections, dedicated account support |
+|  **Champions / VIP** | Low (< 30 days) | High (> 15 orders) | High (> $10,000) | Exclusive VIP rewards, early access to new collections, dedicated account support |
 | 💛 **Loyal Regulars** | Moderate (30–90 days) | High (> 10 orders) | Moderate–High | Cross-selling recommendations, loyalty points to maximize Customer Lifetime Value (CLV) |
 | 🆕 **Recent / New Buyers** | Low Recency, low order count | Low | Low–Moderate | Welcome discount codes, onboarding email sequences, popular product suggestions |
 | ⚠️ **At-Risk / Lost Customers** | High–Very High (> 120–250+ days) | Low (1–2 orders) | Low–Moderate | Targeted win-back campaigns, re-engagement promotions, low-cost automated email sequences |
