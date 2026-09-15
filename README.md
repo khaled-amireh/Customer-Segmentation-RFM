@@ -104,7 +104,7 @@ The Within-Cluster Sum of Squares (WCSS) plot shows a clear inflection point —
 
 ---
 
-## ⚖️ Model Evaluation & Comparison
+##  Model Evaluation & Comparison
 
 Both algorithms were fitted on the same scaled RFM feature set and evaluated using internal cluster validation metrics (no ground-truth labels exist for this unsupervised problem, so external accuracy metrics don't apply):
 
