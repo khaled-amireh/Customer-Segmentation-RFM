@@ -194,7 +194,7 @@ jupyter notebook notebooks/customer_segmentation_rfm.ipynb
 
 ---
 
-## ⚠️ Limitations
+##  Limitations
 
 - As with all unsupervised clustering, there is no ground-truth label to validate segment "correctness" against — evaluation relies on internal metrics (Silhouette, Davies-Bouldin) and business interpretability rather than predictive accuracy.
 - RFM features alone don't capture product-category preferences or channel behavior, which could refine segments further.
