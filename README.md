@@ -129,7 +129,7 @@ Side-by-side scatter plots of customer distribution across the Recency–Monetar
 
 ---
 
-## 💼 Business Persona Mapping & Strategy
+##  Business Persona Mapping & Strategy
 
 The four data-driven clusters were mapped to actionable marketing personas, combining each segment's RFM profile with a concrete recommended strategy:
 
