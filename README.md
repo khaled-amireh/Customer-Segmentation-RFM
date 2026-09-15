@@ -155,7 +155,7 @@ This is the core deliverable of the project: each cluster isn't just a statistic
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 Customer-Segmentation-RFM-Clustering/
