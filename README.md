@@ -212,10 +212,9 @@ jupyter notebook notebooks/customer_segmentation_rfm.ipynb
 
 ---
 
-## 👤 Author
+##  Author
 
 **Khaled Amireh**
-[GitHub](https://github.com/khaled-amireh)
 
 ---
 
