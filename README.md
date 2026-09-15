@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🎯 Customer Segmentation using K-Means & Hierarchical Clustering
+#  Customer Segmentation using K-Means & Hierarchical Clustering
 
 ### Turning ~1M retail transactions into actionable customer personas via RFM analysis
 
