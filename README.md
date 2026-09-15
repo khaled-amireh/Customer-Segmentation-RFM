@@ -80,7 +80,7 @@ Applied `StandardScaler` to place Recency, Frequency, and Monetary on comparable
 
 ---
 
-## 🔍 Optimal Cluster Selection (K = 4)
+##  Optimal Cluster Selection (K = 4)
 
 Rather than picking a cluster count arbitrarily, two independent methods were used to **cross-validate** the choice of K.
 
