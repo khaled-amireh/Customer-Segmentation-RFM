@@ -18,7 +18,7 @@
 
 ---
 
-## 📋 Executive Summary & Problem Overview
+##  Executive Summary & Problem Overview
 
 Effective marketing requires understanding **distinct customer behaviors**, not treating every shopper as interchangeable. Raw transactional data, however, is recorded at the individual-purchase level — it cannot be fed directly into a clustering algorithm without first being aggregated into a customer-level profile.
 
