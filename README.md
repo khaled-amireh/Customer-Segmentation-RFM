@@ -37,7 +37,7 @@ This project engineers **RFM (Recency, Frequency, Monetary)** features at the cu
 
 ---
 
-## 📊 Dataset Information
+##  Dataset Information
 
 **Source:** [Online Retail II Dataset — Kaggle](https://www.kaggle.com/datasets/mashlyn/online-retail-ii-uci)
 
