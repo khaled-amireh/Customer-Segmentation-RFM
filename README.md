@@ -102,7 +102,7 @@ Dropped rows missing `Customer ID` and removed cancelled or negative-quantity ro
 </details>
 
 <details>
-<summary><b>👤 Step 2: Aggregation (click to expand)</b></summary>
+<summary><b> Step 2: Aggregation (click to expand)</b></summary>
 
 <br/>
 
