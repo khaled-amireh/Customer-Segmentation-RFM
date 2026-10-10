@@ -60,7 +60,7 @@ Three questions describe almost any shopper:
 
 ---
 
-## 📂 Dataset
+##  Dataset
 
 **Source:** [Online Retail II Dataset on Kaggle](https://www.kaggle.com/datasets/mashlyn/online-retail-ii-uci)
 
