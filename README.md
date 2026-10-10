@@ -130,7 +130,7 @@ Monetary and Frequency were heavily right-skewed. Picture ten people in a room a
 
 ---
 
-## 🎯 How Many Groups? (K = 4)
+##  How Many Groups? (K = 4)
 
 Instead of guessing, two **independent** methods were used to cross-check the number of clusters.
 
