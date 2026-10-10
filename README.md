@@ -134,7 +134,7 @@ Monetary and Frequency were heavily right-skewed. Picture ten people in a room a
 
 Instead of guessing, two **independent** methods were used to cross-check the number of clusters.
 
-### 🌳 Method 1: The Dendrogram (a family tree of customers)
+###  Method 1: The Dendrogram (a family tree of customers)
 
 With `ward` linkage and Euclidean distance, customers are merged step by step into one big tree. Cutting where the vertical gaps are largest reveals **4 natural groupings**.
 
