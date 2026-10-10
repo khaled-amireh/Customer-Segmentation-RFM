@@ -46,7 +46,7 @@ Imagine a shop owner holding a giant pile of receipts. Sending the same discount
 
 ---
 
-## ⏱️ RFM in 10 Seconds
+##  RFM in 10 Seconds
 
 Three questions describe almost any shopper:
 
