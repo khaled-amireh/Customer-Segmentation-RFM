@@ -187,21 +187,21 @@ How each algorithm splits customers on the Recency vs Monetary plane:
   <tr>
     <td align="center" width="25%"><br/><b>Champions / VIP</b><br/><sub>Recent, frequent, big spenders</sub><br/><br/> VIP rewards, early access, dedicated support</td>
     <td align="center" width="25%"><br/><b>Loyal Regulars</b><br/><sub>Steady, frequent, good spenders</sub><br/><br/> Cross-sell and a loyalty points program</td>
-    <td align="center" width="25%">🌱<br/><b>Recent / New Buyers</b><br/><sub>Just arrived, spending lightly</sub><br/><br/>👋 Welcome discount, onboarding emails, popular picks</td>
-    <td align="center" width="25%">⏳<br/><b>At-Risk / Lost</b><br/><sub>Gone quiet for a long time</sub><br/><br/>💌 Win-back campaigns and re-engagement offers</td>
+    <td align="center" width="25%"><br/><b>Recent / New Buyers</b><br/><sub>Just arrived, spending lightly</sub><br/><br/> Welcome discount, onboarding emails, popular picks</td>
+    <td align="center" width="25%"><br/><b>At-Risk / Lost</b><br/><sub>Gone quiet for a long time</sub><br/><br/> Win-back campaigns and re-engagement offers</td>
   </tr>
 </table>
 
-### 📋 The Playbook
+###  The Playbook
 
 | Segment | Avg. Recency | Avg. Frequency | Avg. Monetary | Strategy |
 |---|:---:|:---:|:---:|---|
-| 🏆 **Champions / VIP** | Low (< 30 days) | High (> 15 orders) | High (> $10,000) | Exclusive VIP rewards, early access to new collections, dedicated account support |
-| 💛 **Loyal Regulars** | Moderate (30–90 days) | High (> 10 orders) | Moderate–High | Cross-selling recommendations, loyalty points to maximize Customer Lifetime Value (CLV) |
-| 🌱 **Recent / New Buyers** | Low recency, low order count | Low | Low–Moderate | Welcome discount codes, onboarding email sequences, popular product suggestions |
-| ⏳ **At-Risk / Lost** | High–Very High (> 120–250+ days) | Low (1–2 orders) | Low–Moderate | Targeted win-back campaigns, re-engagement promotions, low-cost automated emails |
+|  **Champions / VIP** | Low (< 30 days) | High (> 15 orders) | High (> $10,000) | Exclusive VIP rewards, early access to new collections, dedicated account support |
+|  **Loyal Regulars** | Moderate (30–90 days) | High (> 10 orders) | Moderate–High | Cross-selling recommendations, loyalty points to maximize Customer Lifetime Value (CLV) |
+|  **Recent / New Buyers** | Low recency, low order count | Low | Low–Moderate | Welcome discount codes, onboarding email sequences, popular product suggestions |
+|  **At-Risk / Lost** | High–Very High (> 120–250+ days) | Low (1–2 orders) | Low–Moderate | Targeted win-back campaigns, re-engagement promotions, low-cost automated emails |
 
-### 🗺️ Where each persona lives
+###  Where each persona lives
 
 ```mermaid
 quadrantChart
@@ -223,18 +223,18 @@ quadrantChart
 
 ---
 
-## 🧰 Technologies Used
+##  Technologies Used
 
 | Category | Tools |
 |---|---|
-| Language | 🐍 Python |
+| Language |  Python |
 | Data Handling | Pandas, NumPy |
 | Machine Learning | Scikit-learn (K-Means, Agglomerative Clustering) |
 | Visualization | Matplotlib, Seaborn, SciPy (dendrogram) |
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 Customer-Segmentation-RFM-Clustering/
@@ -253,7 +253,7 @@ Customer-Segmentation-RFM-Clustering/
 
 ---
 
-## ⚙️ Installation
+##  Installation
 
 ```bash
 # 1. Clone the repository
@@ -273,7 +273,7 @@ jupyter notebook notebooks/customer_segmentation_rfm.ipynb
 
 ---
 
-## ⚠️ Limitations
+##  Limitations
 
 <details>
 <summary><b>Click to see what this project does not do (yet)</b></summary>
@@ -288,7 +288,7 @@ jupyter notebook notebooks/customer_segmentation_rfm.ipynb
 
 ---
 
-## 🚀 Future Improvements
+##  Future Improvements
 
 - [ ] Add product-category and channel features alongside RFM
 - [ ] Try DBSCAN or Gaussian Mixture Models
@@ -298,11 +298,10 @@ jupyter notebook notebooks/customer_segmentation_rfm.ipynb
 
 ---
 
-## 👤 Author
+##  Author
 
 <p align="center">
   <b>Khaled Amireh</b><br/>
-  <a href="https://github.com/khaled-amireh">🔗 GitHub</a>
 </p>
 
 <p align="center"><i>If this project helped you, drop a ⭐ on the repo.</i></p>
