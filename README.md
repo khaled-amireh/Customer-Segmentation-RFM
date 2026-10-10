@@ -111,7 +111,7 @@ Computed spend per line (`Quantity × Price`), then grouped by `Customer ID` to 
 </details>
 
 <details>
-<summary><b>📉 Step 3: Log transform, the "billionaire in the room" fix (click to expand)</b></summary>
+<summary><b> Step 3: Log transform, the "billionaire in the room" fix (click to expand)</b></summary>
 
 <br/>
 
