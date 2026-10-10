@@ -186,7 +186,7 @@ How each algorithm splits customers on the Recency vs Monetary plane:
 <table>
   <tr>
     <td align="center" width="25%"><br/><b>Champions / VIP</b><br/><sub>Recent, frequent, big spenders</sub><br/><br/> VIP rewards, early access, dedicated support</td>
-    <td align="center" width="25%">💛<br/><b>Loyal Regulars</b><br/><sub>Steady, frequent, good spenders</sub><br/><br/>🛒 Cross-sell and a loyalty points program</td>
+    <td align="center" width="25%"><br/><b>Loyal Regulars</b><br/><sub>Steady, frequent, good spenders</sub><br/><br/> Cross-sell and a loyalty points program</td>
     <td align="center" width="25%">🌱<br/><b>Recent / New Buyers</b><br/><sub>Just arrived, spending lightly</sub><br/><br/>👋 Welcome discount, onboarding emails, popular picks</td>
     <td align="center" width="25%">⏳<br/><b>At-Risk / Lost</b><br/><sub>Gone quiet for a long time</sub><br/><br/>💌 Win-back campaigns and re-engagement offers</td>
   </tr>
