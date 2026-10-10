@@ -32,7 +32,7 @@
 
 ---
 
-## 💡 The Big Idea
+##  The Big Idea
 
 > [!NOTE]
 > **In one sentence:** this project reads about a million store receipts, turns them into one simple profile per customer, and lets two clustering algorithms sort everyone into **4 groups**, each with its own marketing plan.
