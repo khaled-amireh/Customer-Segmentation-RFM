@@ -52,7 +52,7 @@ Three questions describe almost any shopper:
 
 | | Letter | The question | Measured as |
 |:-:|:-:|---|---|
-| ⏰ | **R**ecency | *How recently did they shop?* | Days since last completed purchase |
+|  | **R**ecency | *How recently did they shop?* | Days since last completed purchase |
 | 🔁 | **F**requency | *How often do they shop?* | Number of distinct completed purchases |
 | 💰 | **M**onetary | *How much do they spend?* | Total revenue from that customer |
 
