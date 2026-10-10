@@ -41,7 +41,7 @@
 Imagine a shop owner holding a giant pile of receipts. Sending the same discount email to *everyone* is wasteful: your best customer, a first-time visitor, and someone who left two years ago need very different messages. So we sort customers into groups of "people who behave alike" **without telling the computer what the groups are**. That is called *unsupervised learning*.
 
 ```
-🧾 ~1M receipts  ➜  👤 One profile per customer (RFM)  ➜  🤖 Clustering  ➜  🎯 4 personas + a plan for each
+ ~1M receipts  ➜   One profile per customer (RFM)  ➜   Clustering  ➜  4 personas + a plan for each
 ```
 
 ---
