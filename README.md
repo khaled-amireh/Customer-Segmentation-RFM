@@ -120,7 +120,7 @@ Monetary and Frequency were heavily right-skewed. Picture ten people in a room a
 </details>
 
 <details>
-<summary><b>📏 Step 4: Scaling (click to expand)</b></summary>
+<summary><b> Step 4: Scaling (click to expand)</b></summary>
 
 <br/>
 
