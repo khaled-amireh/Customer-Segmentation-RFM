@@ -142,7 +142,7 @@ With `ward` linkage and Euclidean distance, customers are merged step by step in
   <img src="images/dendrogram.png" alt="Hierarchical Dendrogram" width="700">
 </p>
 
-### 💪 Method 2: The Elbow (bend your arm)
+###  Method 2: The Elbow (bend your arm)
 
 The WCSS plot (how tightly packed the clusters are) drops fast, then flattens. The bend, the "elbow", sits at **K = 4**: past that point, extra clusters barely help.
 
