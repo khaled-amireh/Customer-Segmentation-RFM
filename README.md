@@ -72,11 +72,11 @@ Three questions describe almost any shopper:
 
 ```mermaid
 flowchart LR
-    A["🧾 Raw invoices<br/>~1M rows"] --> B["🧹 Clean<br/>drop missing Customer ID<br/>and cancelled orders"]
-    B --> C["👤 Aggregate<br/>one RFM row per customer"]
-    C --> D["📉 Log transform<br/>np.log1p"]
-    D --> E["📏 StandardScaler"]
-    E --> F["🤖 K-Means and<br/>Hierarchical Clustering"]
+    A[" Raw invoices<br/>~1M rows"] --> B[" Clean<br/>drop missing Customer ID<br/>and cancelled orders"]
+    B --> C[" Aggregate<br/>one RFM row per customer"]
+    C --> D[" Log transform<br/>np.log1p"]
+    D --> E[" StandardScaler"]
+    E --> F[" K-Means and<br/>Hierarchical Clustering"]
 
     classDef step fill:#4c1d95,stroke:#a78bfa,color:#fff;
     classDef out fill:#9d174d,stroke:#f472b6,color:#fff;
