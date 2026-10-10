@@ -68,7 +68,7 @@ Three questions describe almost any shopper:
 
 ---
 
-## 🧪 From Receipts to People (Feature Engineering)
+##  From Receipts to People (Feature Engineering)
 
 ```mermaid
 flowchart LR
