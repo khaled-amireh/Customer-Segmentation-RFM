@@ -93,7 +93,7 @@ flowchart LR
 | Customer 17850, 15 Dec, £45 | | **Monetary** | £100 |
 
 <details>
-<summary><b>🧹 Step 1: Cleaning (click to expand)</b></summary>
+<summary><b> Step 1: Cleaning (click to expand)</b></summary>
 
 <br/>
 
