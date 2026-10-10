@@ -161,7 +161,7 @@ Both algorithms ran on the same scaled RFM data. There are no "correct answer" l
 
 | | Silhouette ↑ | Davies-Bouldin ↓ |
 |---|:---:|:---:|
-| 🥇 **K-Means** | **0.3663** 🏅 | 0.9355 |
+|  **K-Means** | **0.3663**  | 0.9355 |
 | 🥈 **Hierarchical** | 0.3314 | **0.9317** 🏅 |
 
 **Reading the scores in plain words:**
