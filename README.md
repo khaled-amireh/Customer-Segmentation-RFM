@@ -171,7 +171,7 @@ Both algorithms ran on the same scaled RFM data. There are no "correct answer" l
 
 Each algorithm wins one round, which is common when comparing these two families. **K-Means was used for the final personas** because of its stronger Silhouette Score and its much better scalability to large customer bases.
 
-### 🔍 Side-by-Side View
+###  Side-by-Side View
 
 How each algorithm splits customers on the Recency vs Monetary plane:
 
@@ -181,11 +181,11 @@ How each algorithm splits customers on the Recency vs Monetary plane:
 
 ---
 
-## 🎭 Meet the 4 Personas
+##  Meet the 4 Personas
 
 <table>
   <tr>
-    <td align="center" width="25%">🏆<br/><b>Champions / VIP</b><br/><sub>Recent, frequent, big spenders</sub><br/><br/>🎁 VIP rewards, early access, dedicated support</td>
+    <td align="center" width="25%"><br/><b>Champions / VIP</b><br/><sub>Recent, frequent, big spenders</sub><br/><br/> VIP rewards, early access, dedicated support</td>
     <td align="center" width="25%">💛<br/><b>Loyal Regulars</b><br/><sub>Steady, frequent, good spenders</sub><br/><br/>🛒 Cross-sell and a loyalty points program</td>
     <td align="center" width="25%">🌱<br/><b>Recent / New Buyers</b><br/><sub>Just arrived, spending lightly</sub><br/><br/>👋 Welcome discount, onboarding emails, popular picks</td>
     <td align="center" width="25%">⏳<br/><b>At-Risk / Lost</b><br/><sub>Gone quiet for a long time</sub><br/><br/>💌 Win-back campaigns and re-engagement offers</td>
