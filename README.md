@@ -155,7 +155,7 @@ The WCSS plot (how tightly packed the clusters are) drops fast, then flattens. T
 
 ---
 
-## ⚔️ The Duel: K-Means vs Hierarchical
+##  The Duel: K-Means vs Hierarchical
 
 Both algorithms ran on the same scaled RFM data. There are no "correct answer" labels in unsupervised learning, so they are judged with two *internal* scores.
 
