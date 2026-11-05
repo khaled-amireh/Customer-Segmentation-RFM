@@ -129,6 +129,18 @@ The elbow and dendrogram are diagnostics. Neither programmatically selects the h
 
 K-Means uses `n_clusters=4`, `init='k-means++'`, and `random_state=42`. An earlier sweep evaluates inertia for k=1 through 10. `n_init` is left at the installed library default; the original environment was not recorded.
 
+| Parameter / output | Recorded behavior |
+|---|---|
+| Input | The three standardized log-RFM columns in `X_scaled` |
+| Elbow diagnostic | Fit a separate estimator at each k=1...10; collect `inertia_` |
+| Final fit | Four centers; k-means++ initialization; seed 42 |
+| Labels | `fit_predict(X_scaled)` assigned to `rfm['Cluster_KMeans']` |
+| Evaluation | Same fitted population and matrix; no holdout |
+
+The objective minimizes within-cluster squared Euclidean distances in the transformed space. Raw-spend differences have already been compressed, so centers must be interpreted with the transformation in mind. The implementation does not export centers, labels, or a fitted model.
+
+A fixed seed controls initialization within a given environment; it does not demonstrate stability across seeds or package versions. In particular, [scikit-learn changed the default `n_init` in version 1.4](https://scikit-learn.org/1.5/modules/generated/sklearn.cluster.KMeans.html). That omission can change the number of starts and the resulting partition. Source: [elbow loop](customer_segmentation_rfm_clustering.py#L44) and [final fit](customer_segmentation_rfm_clustering.py#L60).
+
 ## Hierarchical Clustering
 
 SciPy builds the Ward dendrogram from `X_scaled`. A separate scikit-learn `AgglomerativeClustering(n_clusters=4, metric='euclidean', linkage='ward')` fit generates hierarchical labels. The notebook does not cut the SciPy tree to obtain those labels.
