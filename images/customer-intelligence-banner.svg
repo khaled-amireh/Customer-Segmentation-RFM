@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="460" viewBox="0 0 1440 460" role="img" aria-labelledby="title desc">
+  <title id="title">Customer Segmentation Intelligence</title>
+  <desc id="desc">Discovering Customer Behavior Through RFM Analytics and Unsupervised Learning. Abstract customer clusters and Recency, Frequency, Monetary signals; illustrative artwork, not measured data.</desc>
+  <defs>
+    <linearGradient id="panel" x2="1" y2="1"><stop stop-color="#17213B"/><stop offset="1" stop-color="#0B1220"/></linearGradient>
+    <linearGradient id="accent"><stop stop-color="#7C3AED"/><stop offset="1" stop-color="#22D3EE"/></linearGradient>
+    <radialGradient id="halo"><stop stop-color="#7C3AED" stop-opacity=".23"/><stop offset="1" stop-color="#7C3AED" stop-opacity="0"/></radialGradient>
+    <pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse"><path d="M36 0H0V36" fill="none" stroke="#F8FAFC" stroke-opacity=".035"/></pattern>
+  </defs>
+  <rect width="1440" height="460" rx="24" fill="#0B1220"/>
+  <rect width="1440" height="460" rx="24" fill="url(#grid)"/>
+  <ellipse cx="1100" cy="220" rx="380" ry="270" fill="url(#halo)"/>
+  <rect x="42" y="42" width="1356" height="376" rx="18" fill="none" stroke="#F8FAFC" stroke-opacity=".1"/>
+  <rect x="72" y="74" width="46" height="4" rx="2" fill="url(#accent)"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <text x="132" y="81" fill="#22D3EE" font-size="12" letter-spacing="3">CUSTOMER ANALYTICS / ML CASE STUDY</text>
+    <text x="72" y="151" fill="#F8FAFC" font-size="46" font-weight="700" letter-spacing="1">CUSTOMER SEGMENTATION</text>
+    <text x="72" y="207" fill="#F8FAFC" font-size="46" font-weight="700" letter-spacing="4">INTELLIGENCE</text>
+    <text x="74" y="252" fill="#D2DAEA" font-size="18">Discovering Customer Behavior Through</text>
+    <text x="74" y="280" fill="#D2DAEA" font-size="18">RFM Analytics and Unsupervised Learning</text>
+    <g font-size="12" letter-spacing="1.4">
+      <rect x="74" y="317" width="176" height="38" rx="7" fill="#7C3AED" fill-opacity=".15" stroke="#7C3AED" stroke-opacity=".6"/>
+      <text x="94" y="341" fill="#E6D9FF">RFM ENGINEERING</text>
+      <rect x="264" y="317" width="146" height="38" rx="7" fill="#22D3EE" fill-opacity=".08" stroke="#22D3EE" stroke-opacity=".4"/>
+      <text x="288" y="341" fill="#A5F3FC">CLUSTERING</text>
+      <rect x="424" y="317" width="170" height="38" rx="7" fill="#DB2777" fill-opacity=".12" stroke="#DB2777" stroke-opacity=".5"/>
+      <text x="443" y="341" fill="#F9B8D6">SEGMENT INSIGHT</text>
+    </g>
+    <text x="74" y="391" fill="#9BAAC4" font-size="12" letter-spacing="2">KHALED AMIREH</text>
+  </g>
+  <g stroke="#8DA3CF" stroke-opacity=".22" fill="none">
+    <path d="M890 129L1040 191L1196 118M1040 191L1227 286L1060 337L880 278L890 129M880 278L1040 191L1060 337M890 129L1196 118L1227 286"/>
+    <path d="M830 98H1324M830 373H1324" stroke-dasharray="3 8"/>
+  </g>
+  <g fill="url(#panel)" stroke-width="1.5">
+    <ellipse cx="898" cy="151" rx="69" ry="53" stroke="#7C3AED" stroke-opacity=".5"/>
+    <ellipse cx="1210" cy="144" rx="74" ry="55" stroke="#22D3EE" stroke-opacity=".5"/>
+    <ellipse cx="922" cy="300" rx="79" ry="57" stroke="#DB2777" stroke-opacity=".5"/>
+    <ellipse cx="1210" cy="302" rx="70" ry="52" stroke="#7C3AED" stroke-opacity=".5"/>
+  </g>
+  <g fill="#7C3AED">
+    <circle cx="870" cy="140" r="5"/><circle cx="899" cy="128" r="7"/><circle cx="926" cy="145" r="5"/><circle cx="887" cy="166" r="6"/><circle cx="916" cy="174" r="4"/><circle cx="902" cy="150" r="4"/>
+    <circle cx="1182" cy="294" r="5"/><circle cx="1207" cy="280" r="6"/><circle cx="1234" cy="296" r="5"/><circle cx="1197" cy="319" r="5"/><circle cx="1222" cy="323" r="7"/>
+  </g>
+  <g fill="#22D3EE">
+    <circle cx="1179" cy="133" r="5"/><circle cx="1205" cy="118" r="6"/><circle cx="1238" cy="137" r="5"/><circle cx="1198" cy="154" r="7"/><circle cx="1227" cy="167" r="4"/><circle cx="1219" cy="141" r="4"/>
+  </g>
+  <g fill="#DB2777">
+    <circle cx="888" cy="291" r="5"/><circle cx="918" cy="274" r="6"/><circle cx="950" cy="287" r="5"/><circle cx="906" cy="313" r="7"/><circle cx="938" cy="321" r="4"/><circle cx="929" cy="298" r="4"/>
+  </g>
+  <g transform="translate(1012 180)">
+    <rect width="84" height="94" rx="12" fill="#111D32" stroke="#F8FAFC" stroke-opacity=".2"/>
+    <g fill="#B6C5DD" font-family="Arial, Helvetica, sans-serif" font-size="11">
+      <text x="12" y="25">R</text><text x="12" y="50">F</text><text x="12" y="75">M</text>
+    </g>
+    <path d="M31 21H68" stroke="#22D3EE" stroke-width="5" stroke-linecap="round"/>
+    <path d="M31 46H56" stroke="#7C3AED" stroke-width="5" stroke-linecap="round"/>
+    <path d="M31 71H64" stroke="#DB2777" stroke-width="5" stroke-linecap="round"/>
+  </g>
+  <text x="1078" y="399" text-anchor="middle" fill="#9BAAC4" font-family="Arial, Helvetica, sans-serif" font-size="10" letter-spacing="2">ABSTRACT SIGNALS / ILLUSTRATIVE CLUSTERS</text>
+  <rect x="72" y="441" width="1296" height="3" rx="1.5" fill="url(#accent)"/>
+</svg>
