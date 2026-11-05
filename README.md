@@ -180,6 +180,26 @@ These observations come only from the original scatterplot and describe overlapp
 
 The repository preserves three original charts: [elbow](images/elbow_method.png), [dendrogram](images/dendrogram.png), and [cluster comparison](images/cluster_comparison.png). They visualize model diagnostics and a two-feature projection of the fitted partitions.
 
+### Elbow diagnostic
+
+<img src="images/elbow_method.png" alt="Original K-Means elbow plot: inertia decreases for k from 1 through 10" width="760">
+
+*Within-cluster sum of squares in standardized log-RFM space. Diminishing returns are visible; the code does not automatically select K.*
+
+### Ward merge hierarchy
+
+<img src="images/dendrogram.png" alt="Original Ward dendrogram of customer profiles with linkage distances and dense leaf labels" width="900">
+
+*Customer-profile merges, not invoice-level merges. There is no explicit four-cluster cut, and branch colors are not business-segment names.*
+
+### Model comparison in original units
+
+<img src="images/cluster_comparison.png" alt="Original side-by-side K-Means and hierarchical partitions: Recency versus Monetary with logarithmic Monetary axis" width="1100">
+
+*The fit uses three transformed features; this projection shows two original-unit features. Frequency is omitted, Monetary has a log display axis, and color IDs do not match groups across algorithms.*
+
+The [visual analysis guide](docs/VISUAL_GUIDE.md) explains axes, source locations, image dimensions, and limits on reading counts or separation from the plots. The hero banner is illustrative vector artwork; it contains no measured cluster statistics.
+
 ## Technical Decisions and Limitations
 
 Invoice-based Frequency and a shared transformed matrix align with the stated RFM comparison. Important limits remain: missing input provenance, incomplete validation of cancellations and prices, no duplicate policy, unknown package versions, and no stability or campaign evidence. The model fits and evaluates the same customer snapshot.
@@ -200,7 +220,8 @@ Customer-Segmentation-RFM/
 |   |-- EVALUATION.md
 |   |-- EVIDENCE.md
 |   |-- RFM_METHOD.md
-|   `-- SEGMENTS.md
+|   |-- SEGMENTS.md
+|   `-- VISUAL_GUIDE.md
 |-- LICENSE
 `-- README.md
 ```
