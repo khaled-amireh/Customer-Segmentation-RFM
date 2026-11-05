@@ -159,6 +159,10 @@ The [SciPy linkage documentation](https://docs.scipy.org/doc/scipy/reference/gen
 
 The saved metrics favor K-Means on silhouette and hierarchical clustering on Davies-Bouldin. Neither algorithm dominates both measures. Four clusters are a configured exploratory choice; there is no saved silhouette sweep across K or stability experiment.
 
+The metric calls use `X_scaled` and each model's corresponding labels, with no `sample_size` argument. K-Means' silhouette advantage is 0.0349; hierarchical's Davies-Bouldin advantage is 0.0038, based on rounded saved values. No uncertainty intervals are available. A higher silhouette here supports only a better score on this snapshot and geometry.
+
+The original charts do not prove a unique optimum: the elbow requires judgment and the dendrogram has no explicit four-cluster cut. Read the [evaluation evidence](docs/EVALUATION.md) for metric-call verification, selection limits, and experiments that would strengthen the comparison.
+
 ## Customer Segment Profiles
 
 The plots show IDs 0-3 for each algorithm, but the repository saves no cluster counts, centroids, or full RFM summaries. Persona names and numeric marketing thresholds therefore remain hypotheses. Cluster IDs are arbitrary and do not identify matching groups across algorithms.
@@ -184,6 +188,7 @@ Customer-Segmentation-RFM/
 |   `-- elbow_method.png
 |-- docs/
 |   |-- DATASET.md
+|   |-- EVALUATION.md
 |   |-- EVIDENCE.md
 |   `-- RFM_METHOD.md
 |-- LICENSE
