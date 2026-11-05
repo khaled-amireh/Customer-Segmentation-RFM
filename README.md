@@ -1,311 +1,144 @@
 <p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=soft&color=0:7c3aed,50:db2777,100:f59e0b&height=230&section=header&text=Customer%20Segmentation&fontSize=46&fontColor=ffffff&animation=scaleIn&fontAlignY=40&desc=K-Means%20vs%20Hierarchical%20Clustering%20on%20RFM&descAlignY=63&descSize=18" alt="header"/>
+  <img src="images/customer-intelligence-banner.svg" alt="Customer Segmentation Intelligence: abstract customer clusters and RFM signals" width="100%">
 </p>
+
+<h1 align="center">Customer Segmentation Intelligence</h1>
+<p align="center"><strong>Discovering Customer Behavior Through RFM Analytics and Unsupervised Learning</strong></p>
 
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=17&pause=900&color=DB2777&center=true&vCenter=true&width=650&lines=Sorting+1M+receipts+into+real+people...;Recency.+Frequency.+Monetary.;2+algorithms.+4+customer+personas.;Every+group+gets+its+own+game+plan" alt="typing-svg" />
+  <img src="https://img.shields.io/badge/Python-3.11.9_notebook-3776AB?style=flat-square" alt="Notebook metadata: Python 3.11.9">
+  <img src="https://img.shields.io/badge/pandas-RFM-150458?style=flat-square" alt="pandas RFM aggregation">
+  <img src="https://img.shields.io/badge/scikit--learn-clustering-F7931E?style=flat-square" alt="scikit-learn clustering">
+  <img src="https://img.shields.io/badge/SciPy-Ward_linkage-22D3EE?style=flat-square" alt="SciPy Ward linkage">
+  <img src="https://img.shields.io/badge/License-MIT-7C3AED?style=flat-square" alt="Repository license: MIT">
 </p>
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Personas-4-7c3aed?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Silhouette-0.3663-db2777?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Transactions-~1M-f59e0b?style=for-the-badge" />
-</p>
+**Three behavioral features. Two clustering methods. Four configured groups per method.**
+A customer analytics case study with preserved notebook results, traceable methodology, and an explicit account of what the evidence can support.
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Python-3.8%2B-3776AB?style=flat-square&logo=python&logoColor=white" />
-  <img src="https://img.shields.io/badge/Scikit--learn-Clustering-F7931E?style=flat-square&logo=scikit-learn&logoColor=white" />
-  <img src="https://img.shields.io/badge/Pandas-Data%20Processing-150458?style=flat-square&logo=pandas&logoColor=white" />
-  <img src="https://img.shields.io/badge/Status-Completed-2ea44f?style=flat-square" />
-  <img src="https://img.shields.io/badge/License-MIT-lightgrey?style=flat-square" />
-</p>
+## Contents
 
-<p align="center">
-  <a href="#-the-big-idea">Big Idea</a> •
-  <a href="#-rfm-in-10-seconds">RFM</a> •
-  <a href="#-dataset">Dataset</a> •
-  <a href="#-from-receipts-to-people-feature-engineering">Engineering</a> •
-  <a href="#-how-many-groups-k--4">Choosing K</a> •
-  <a href="#-the-duel-k-means-vs-hierarchical">The Duel</a> •
-  <a href="#-meet-the-4-personas">Personas</a>
-</p>
+[01 Overview](#executive-overview) / [02 Business problem](#business-problem) / [03 Dataset](#dataset-and-provenance) / [04 RFM](#understanding-rfm-analysis) / [05 Cleaning](#data-cleaning) / [06 Features](#rfm-feature-engineering) / [07 Scaling](#data-transformations-and-scaling) / [08 Architecture](#machine-learning-architecture) / [09 K-Means](#k-means-clustering) / [10 Hierarchical](#hierarchical-clustering) / [11 Evaluation](#cluster-selection-and-evaluation) / [12 Segments](#customer-segment-profiles) / [13 Visuals](#visual-analysis) / [14 Limitations](#technical-decisions-and-limitations) / [15 Structure](#repository-structure) / [16 Reproduction](#installation-and-reproduction) / [17 Roadmap and credits](#future-roadmap-author-and-credits)
 
----
+## Executive Overview
 
-##  The Big Idea
+This project aggregates retail invoice lines into customer-level Recency, Frequency, and Monetary features. It applies `np.log1p` and `StandardScaler`, then compares K-Means with Ward agglomerative clustering in the same three-dimensional feature space.
 
-> [!NOTE]
-> **In one sentence:** this project reads about a million store receipts, turns them into one simple profile per customer, and lets two clustering algorithms sort everyone into **4 groups**, each with its own marketing plan.
+| Saved notebook result | K-Means | Hierarchical |
+|---|---:|---:|
+| Configured clusters | 4 | 4 |
+| Silhouette score, higher is better | **0.3663** | 0.3314 |
+| Davies-Bouldin index, lower is better | 0.9355 | **0.9317** |
 
-**Explain it like I'm five:**
-Imagine a shop owner holding a giant pile of receipts. Sending the same discount email to *everyone* is wasteful: your best customer, a first-time visitor, and someone who left two years ago need very different messages. So we sort customers into groups of "people who behave alike" **without telling the computer what the groups are**. That is called *unsupervised learning*.
+Metrics come from notebook **cell 16**, not a new run. They describe one saved in-sample comparison. The input CSV and original package versions are absent. [Evidence and original-file hashes](docs/EVIDENCE.md) make that boundary reviewable.
 
-```
- ~1M receipts  ➜   One profile per customer (RFM)  ➜   Clustering  ➜  4 personas + a plan for each
-```
+## Business Problem
 
----
+Customers differ in purchase timing, repeat activity, and spending. RFM offers an interpretable basis for exploring those differences before designing retention, onboarding, or loyalty experiments. The implementation compares partitions; it does not measure campaign response, profit uplift, churn probability, or customer lifetime value.
 
-##  RFM in 10 Seconds
+## Dataset and Provenance
 
-Three questions describe almost any shopper:
+The project references Online Retail II and reads `online_retail_II.csv` from the working directory. The CSV is not included, so its exact row count, coverage, and conversion history cannot be verified locally. The original README linked the [Kaggle mirror](https://www.kaggle.com/datasets/mashlyn/online-retail-ii-uci).
 
-| | Letter | The question | Measured as |
-|:-:|:-:|---|---|
-|  | **R**ecency | *How recently did they shop?* | Days since last completed purchase |
-|  | **F**requency | *How often do they shop?* | Number of distinct completed purchases |
-|  | **M**onetary | *How much do they spend?* | Total revenue from that customer |
+## Understanding RFM Analysis
 
-> RFM was chosen because three business-friendly numbers are easy to explain to a marketing team, and that matters as much as the math.
+| Feature | Implemented meaning | Direction for interpretation |
+|---|---|---|
+| Recency | Whole days from latest purchase to snapshot | Lower means more recent |
+| Frequency | Distinct invoices per customer | Higher means more invoice activity |
+| Monetary | Sum of `Quantity * Price` | Higher means more retained gross spend |
 
----
+RFM describes observed behavior within the input window. It does not establish customer intent or future value.
 
-##  Dataset
+## Data Cleaning
 
-**Source:** [Online Retail II Dataset on Kaggle](https://www.kaggle.com/datasets/mashlyn/online-retail-ii-uci)
+The original code drops missing `Customer ID` rows and retains `Quantity > 0`. It computes `TotalPrice` and parses `InvoiceDate`. There is no explicit invoice-prefix cancellation check, duplicate removal, or positive-price filter.
 
-**Scale:** ~1,000,000 raw invoice transactions, collapsed into one RFM profile per unique customer.
+## RFM Feature Engineering
 
----
+The snapshot is the maximum retained invoice timestamp plus one day. Grouping by `Customer ID` produces one RFM row per customer, using the latest timestamp, unique invoice count, and summed line values. Only the first five RFM rows are saved; a full profile export is absent.
 
-##  From Receipts to People (Feature Engineering)
+## Data Transformations and Scaling
+
+`np.log1p(rfm)` transforms **all three features**, followed by a single `StandardScaler.fit_transform`. Both algorithms consume the same `X_scaled` matrix. Log compression and standardization do not establish robustness to extreme customers.
+
+## Machine Learning Architecture
 
 ```mermaid
-flowchart LR
-    A[" Raw invoices<br/>~1M rows"] --> B[" Clean<br/>drop missing Customer ID<br/>and cancelled orders"]
-    B --> C[" Aggregate<br/>one RFM row per customer"]
-    C --> D[" Log transform<br/>np.log1p"]
-    D --> E[" StandardScaler"]
-    E --> F[" K-Means and<br/>Hierarchical Clustering"]
-
-    classDef step fill:#4c1d95,stroke:#a78bfa,color:#fff;
-    classDef out fill:#9d174d,stroke:#f472b6,color:#fff;
-    class A,B,C,D,E step;
-    class F out;
+flowchart TD
+    A["Local CSV: online_retail_II.csv"] --> B["Drop missing Customer ID; retain Quantity above zero"]
+    B --> C["Quantity times Price; parse InvoiceDate"]
+    C --> D["Snapshot: latest retained timestamp plus one day"]
+    D --> E["Customer RFM: days, distinct invoices, gross spend"]
+    E --> F["log1p on R, F, M then StandardScaler"]
+    F --> G["K-Means inertia sweep: k from 1 to 10"]
+    F --> H["SciPy Ward linkage and dendrogram"]
+    F --> I["K-Means: 4 clusters, random state 42"]
+    F --> J["Agglomerative: 4 clusters, Ward, Euclidean"]
+    I --> K["Silhouette and Davies-Bouldin on X_scaled"]
+    J --> K
+    I --> L["Labels attached to original RFM"]
+    J --> L
+    L --> M["Recency vs Monetary plot; logarithmic y-axis"]
+    classDef stage fill:#0B1220,stroke:#7C3AED,color:#F8FAFC;
+    classDef result fill:#0B1220,stroke:#22D3EE,color:#F8FAFC;
+    class A,B,C,D,E,F,G,H,I,J stage;
+    class K,L,M result;
 ```
 
-**Before and after** (an illustrative example, not real rows from the dataset):
+The elbow and dendrogram are diagnostics. Neither programmatically selects the hard-coded four-cluster setting.
 
-| Before: many receipt lines | | After: one customer profile | |
-|---|---|---|---|
-| Customer 17850, 3 Dec, £20 | | **Recency** | 12 days |
-| Customer 17850, 9 Dec, £35 | ➜ | **Frequency** | 3 purchases |
-| Customer 17850, 15 Dec, £45 | | **Monetary** | £100 |
+## K-Means Clustering
 
-<details>
-<summary><b> Step 1: Cleaning (click to expand)</b></summary>
+K-Means uses `n_clusters=4`, `init='k-means++'`, and `random_state=42`. An earlier sweep evaluates inertia for k=1 through 10. `n_init` is left at the installed library default; the original environment was not recorded.
 
-<br/>
+## Hierarchical Clustering
 
-Dropped rows missing `Customer ID` and removed cancelled or negative-quantity rows (`Quantity > 0`), so RFM reflects only real, completed purchases.
+SciPy builds the Ward dendrogram from `X_scaled`. A separate scikit-learn `AgglomerativeClustering(n_clusters=4, metric='euclidean', linkage='ward')` fit generates hierarchical labels. The notebook does not cut the SciPy tree to obtain those labels.
 
-</details>
+## Cluster Selection and Evaluation
 
-<details>
-<summary><b> Step 2: Aggregation (click to expand)</b></summary>
+The saved metrics favor K-Means on silhouette and hierarchical clustering on Davies-Bouldin. Neither algorithm dominates both measures. Four clusters are a configured exploratory choice; there is no saved silhouette sweep across K or stability experiment.
 
-<br/>
+## Customer Segment Profiles
 
-Computed spend per line (`Quantity × Price`), then grouped by `Customer ID` to calculate Recency, Frequency, and Monetary. About 1M rows became one row per customer.
+The plots show IDs 0-3 for each algorithm, but the repository saves no cluster counts, centroids, or full RFM summaries. Persona names and numeric marketing thresholds therefore remain hypotheses. Cluster IDs are arbitrary and do not identify matching groups across algorithms.
 
-</details>
+## Visual Analysis
 
-<details>
-<summary><b> Step 3: Log transform, the "billionaire in the room" fix (click to expand)</b></summary>
+The repository preserves three original charts: [elbow](images/elbow_method.png), [dendrogram](images/dendrogram.png), and [cluster comparison](images/cluster_comparison.png). They visualize model diagnostics and a two-feature projection of the fitted partitions.
 
-<br/>
+## Technical Decisions and Limitations
 
-Monetary and Frequency were heavily right-skewed. Picture ten people in a room and one billionaire walks in: the *average* wealth explodes, and it tells you nothing about the typical person. A few mega-spenders would do the same to the clustering distances, so `np.log1p()` was applied to shrink the extremes and let the typical behavior show.
+Invoice-based Frequency and a shared transformed matrix align with the stated RFM comparison. Important limits remain: missing input provenance, incomplete validation of cancellations and prices, no duplicate policy, unknown package versions, and no stability or campaign evidence. The model fits and evaluates the same customer snapshot.
 
-</details>
+## Repository Structure
 
-<details>
-<summary><b> Step 4: Scaling (click to expand)</b></summary>
-
-<br/>
-
-`StandardScaler` puts Recency, Frequency, and Monetary on the same scale. Both algorithms are distance-based, so without this, a feature measured in big numbers (money) would quietly bully a feature measured in small ones (order counts).
-
-</details>
-
----
-
-##  How Many Groups? (K = 4)
-
-Instead of guessing, two **independent** methods were used to cross-check the number of clusters.
-
-###  Method 1: The Dendrogram (a family tree of customers)
-
-With `ward` linkage and Euclidean distance, customers are merged step by step into one big tree. Cutting where the vertical gaps are largest reveals **4 natural groupings**.
-
-<p align="center">
-  <img src="images/dendrogram.png" alt="Hierarchical Dendrogram" width="700">
-</p>
-
-###  Method 2: The Elbow (bend your arm)
-
-The WCSS plot (how tightly packed the clusters are) drops fast, then flattens. The bend, the "elbow", sits at **K = 4**: past that point, extra clusters barely help.
-
-<p align="center">
-  <img src="images/elbow_method.png" alt="Elbow Method" width="700">
-</p>
-
-> [!IMPORTANT]
-> **Two different methods, one answer.** The dendrogram (linkage distances) and the elbow (variance minimization) reach K = 4 by completely different math. Agreement between them is what makes the choice trustworthy.
-
----
-
-##  The Duel: K-Means vs Hierarchical
-
-Both algorithms ran on the same scaled RFM data. There are no "correct answer" labels in unsupervised learning, so they are judged with two *internal* scores.
-
-| | Silhouette ↑ | Davies-Bouldin ↓ |
-|---|:---:|:---:|
-|  **K-Means** | **0.3663**  | 0.9355 |
-|  **Hierarchical** | 0.3314 | **0.9317**  |
-
-**Reading the scores in plain words:**
-
-- **Silhouette** (higher is better) asks *"does each customer feel at home in their own group, far from the others?"* K-Means scores a bit higher, so its groups are slightly tighter and more distinct.
-- **Davies-Bouldin** (lower is better) asks *"how much does each group overlap with its closest neighbor?"* Hierarchical edges it by a hair.
-
-Each algorithm wins one round, which is common when comparing these two families. **K-Means was used for the final personas** because of its stronger Silhouette Score and its much better scalability to large customer bases.
-
-###  Side-by-Side View
-
-How each algorithm splits customers on the Recency vs Monetary plane:
-
-<p align="center">
-  <img src="images/cluster_comparison.png" alt="Cluster Comparison" width="700">
-</p>
-
----
-
-##  Meet the 4 Personas
-
-<table>
-  <tr>
-    <td align="center" width="25%"><br/><b>Champions / VIP</b><br/><sub>Recent, frequent, big spenders</sub><br/><br/> VIP rewards, early access, dedicated support</td>
-    <td align="center" width="25%"><br/><b>Loyal Regulars</b><br/><sub>Steady, frequent, good spenders</sub><br/><br/> Cross-sell and a loyalty points program</td>
-    <td align="center" width="25%"><br/><b>Recent / New Buyers</b><br/><sub>Just arrived, spending lightly</sub><br/><br/> Welcome discount, onboarding emails, popular picks</td>
-    <td align="center" width="25%"><br/><b>At-Risk / Lost</b><br/><sub>Gone quiet for a long time</sub><br/><br/> Win-back campaigns and re-engagement offers</td>
-  </tr>
-</table>
-
-###  The Playbook
-
-| Segment | Avg. Recency | Avg. Frequency | Avg. Monetary | Strategy |
-|---|:---:|:---:|:---:|---|
-|  **Champions / VIP** | Low (< 30 days) | High (> 15 orders) | High (> $10,000) | Exclusive VIP rewards, early access to new collections, dedicated account support |
-|  **Loyal Regulars** | Moderate (30–90 days) | High (> 10 orders) | Moderate–High | Cross-selling recommendations, loyalty points to maximize Customer Lifetime Value (CLV) |
-|  **Recent / New Buyers** | Low recency, low order count | Low | Low–Moderate | Welcome discount codes, onboarding email sequences, popular product suggestions |
-|  **At-Risk / Lost** | High–Very High (> 120–250+ days) | Low (1–2 orders) | Low–Moderate | Targeted win-back campaigns, re-engagement promotions, low-cost automated emails |
-
-###  Where each persona lives
-
-```mermaid
-quadrantChart
-    title Customer personas (positions are illustrative)
-    x-axis Bought long ago --> Bought recently
-    y-axis Low spend --> High spend
-    quadrant-1 Recent big spenders
-    quadrant-2 Old big spenders
-    quadrant-3 Old small spenders
-    quadrant-4 Recent small spenders
-    Champions: [0.86, 0.9]
-    Loyal Regulars: [0.6, 0.66]
-    New Buyers: [0.85, 0.2]
-    At-Risk and Lost: [0.14, 0.3]
+```text
+Customer-Segmentation-RFM/
+|-- customer_segmentation_rfm_clustering.ipynb
+|-- customer_segmentation_rfm_clustering.py
+|-- images/
+|   |-- customer-intelligence-banner.svg
+|   |-- cluster_comparison.png
+|   |-- dendrogram.png
+|   `-- elbow_method.png
+|-- docs/
+|   `-- EVIDENCE.md
+|-- LICENSE
+`-- README.md
 ```
 
-> [!TIP]
-> **Why this matters:** every cluster is more than a statistical blob. It is a group a marketing team can act on, each with its own message and budget, instead of one blanket campaign for everyone.
+Notebook and script are at the repository root. A dataset and dependency manifest are not tracked.
 
----
+## Installation and Reproduction
 
-##  Technologies Used
+Open the root notebook to inspect its saved results without executing it. A fresh run requires an independently supplied `online_retail_II.csv` and a compatible Python environment. The script writes the original image paths; use a separate disposable copy for experiments.
 
-| Category | Tools |
-|---|---|
-| Language |  Python |
-| Data Handling | Pandas, NumPy |
-| Machine Learning | Scikit-learn (K-Means, Agglomerative Clustering) |
-| Visualization | Matplotlib, Seaborn, SciPy (dendrogram) |
+## Future Roadmap, Author and Credits
 
----
+Future work should first recover the original input hash and environment, quantify cleaning decisions, and save cluster counts and RFM summaries. Then compare K and random seeds, assess temporal stability, and test any proposed marketing treatment with measured outcomes. These are proposed experiments, not implemented features.
 
-##  Project Structure
+**Khaled Amireh** / [GitHub](https://github.com/khaled-amireh) / [Portfolio](https://portfolio-1kpn.onrender.com)
 
-```
-Customer-Segmentation-RFM-Clustering/
-│
-├── images/
-│   ├── dendrogram.png
-│   ├── elbow_method.png
-│   └── cluster_comparison.png
-├── data/
-│   └── online_retail_ii.csv
-├── notebooks/
-│   └── customer_segmentation_rfm.ipynb
-├── README.md
-└── requirements.txt
-```
-
----
-
-##  Installation
-
-```bash
-# 1. Clone the repository
-git clone https://github.com/khaled-amireh/Customer-Segmentation-RFM-Clustering.git
-cd Customer-Segmentation-RFM-Clustering
-
-# 2. Create and activate a virtual environment (recommended)
-python -m venv venv
-source venv/bin/activate      # On Windows: venv\Scripts\activate
-
-# 3. Install dependencies
-pip install -r requirements.txt
-
-# 4. Launch the notebook
-jupyter notebook notebooks/customer_segmentation_rfm.ipynb
-```
-
----
-
-##  Limitations
-
-<details>
-<summary><b>Click to see what this project does not do (yet)</b></summary>
-
-<br/>
-
-- Clustering has no ground-truth labels, so "correct" segments can't be proven. Evaluation relies on internal metrics (Silhouette, Davies-Bouldin) and on whether the personas make business sense.
-- RFM alone doesn't capture product preferences or sales channel behavior, which could sharpen the segments.
-- The groups come from a snapshot in time. Customers change, so the clustering would need to be re-run periodically in production.
-
-</details>
-
----
-
-##  Future Improvements
-
-- [ ] Add product-category and channel features alongside RFM
-- [ ] Try DBSCAN or Gaussian Mixture Models
-- [ ] Build a recurring re-clustering pipeline to track segment drift
-- [ ] A/B test each persona's marketing strategy to prove real-world impact
-- [ ] Add a customer lifetime value (CLV) prediction layer on top of the segments
-
----
-
-##  Author
-
-<p align="center">
-  <b>Khaled Amireh</b><br/>
-</p>
-
-<p align="center"><i>If this project helped you, drop a ⭐ on the repo.</i></p>
-
-<p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:f59e0b,50:db2777,100:7c3aed&height=110&section=footer" alt="footer"/>
-</p>
+Built with Python, pandas, NumPy, scikit-learn, SciPy, Matplotlib, and Seaborn. Repository code is under the [MIT license](LICENSE); dataset licensing and attribution must be considered separately.
