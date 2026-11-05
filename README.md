@@ -230,9 +230,12 @@ Customer-Segmentation-RFM/
 |   |-- DATASET.md
 |   |-- EVALUATION.md
 |   |-- EVIDENCE.md
+|   |-- REPRODUCIBILITY.md
 |   |-- RFM_METHOD.md
 |   |-- SEGMENTS.md
+|   |-- VALIDATION.md
 |   `-- VISUAL_GUIDE.md
+|-- CONTRIBUTING.md
 |-- LICENSE
 `-- README.md
 ```
@@ -243,9 +246,24 @@ Notebook and script are at the repository root. A dataset and dependency manifes
 
 Open the root notebook to inspect its saved results without executing it. A fresh run requires an independently supplied `online_retail_II.csv` and a compatible Python environment. The script writes the original image paths; use a separate disposable copy for experiments.
 
+There is no tracked `requirements.txt`. For a **new experiment** with Python 3.11, the basic PowerShell path is:
+
+```powershell
+git clone https://github.com/khaled-amireh/Customer-Segmentation-RFM.git Customer-Segmentation-RFM-experiment
+cd Customer-Segmentation-RFM-experiment
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install numpy pandas matplotlib seaborn scipy "scikit-learn>=1.2" notebook
+# Supply online_retail_II.csv at this checkout's root before executing cells.
+.\.venv\Scripts\python.exe -m notebook customer_segmentation_rfm_clustering.ipynb
+```
+
+These unpinned dependencies provide a prospective environment, not the missing historical environment. See [reproduction instructions](docs/REPRODUCIBILITY.md) for macOS/Linux commands, the CSV contract, output-overwrite behavior, and how to record a new run. [Validation results](docs/VALIDATION.md) state which documentation checks were actually completed.
+
 ## Future Roadmap, Author and Credits
 
 Future work should first recover the original input hash and environment, quantify cleaning decisions, and save cluster counts and RFM summaries. Then compare K and random seeds, assess temporal stability, and test any proposed marketing treatment with measured outcomes. These are proposed experiments, not implemented features.
+
+Documentation and future analytical contributions should follow the [contribution guide](CONTRIBUTING.md), with clear evidence and focused commits.
 
 **Khaled Amireh** / [GitHub](https://github.com/khaled-amireh) / [Portfolio](https://portfolio-1kpn.onrender.com)
 
