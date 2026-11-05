@@ -40,6 +40,8 @@ Customers differ in purchase timing, repeat activity, and spending. RFM offers a
 
 The project references Online Retail II and reads `online_retail_II.csv` from the working directory. The CSV is not included, so its exact row count, coverage, and conversion history cannot be verified locally. The original README linked the [Kaggle mirror](https://www.kaggle.com/datasets/mashlyn/online-retail-ii-uci).
 
+The [upstream UCI record](https://archive.ics.uci.edu/dataset/502/online+retail+ii) lists **1,067,371 invoice-line records**, rather than unique receipts. That is source scale, not a verified count for the missing local CSV. Prices are described in GBP. See the [dataset provenance and exact CSV contract](docs/DATASET.md) for preparation requirements and attribution.
+
 ## Understanding RFM Analysis
 
 | Feature | Implemented meaning | Direction for interpretation |
@@ -124,6 +126,7 @@ Customer-Segmentation-RFM/
 |   |-- dendrogram.png
 |   `-- elbow_method.png
 |-- docs/
+|   |-- DATASET.md
 |   `-- EVIDENCE.md
 |-- LICENSE
 `-- README.md
