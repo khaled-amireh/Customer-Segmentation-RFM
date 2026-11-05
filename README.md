@@ -58,6 +58,15 @@ This implementation uses continuous RFM features, rather than quartile scores or
 
 The original code drops missing `Customer ID` rows and retains `Quantity > 0`. It computes `TotalPrice` and parses `InvoiceDate`. There is no explicit invoice-prefix cancellation check, duplicate removal, or positive-price filter.
 
+| Step in the original pipeline | Effect | What it does not establish |
+|---|---|---|
+| `dropna(subset=['Customer ID'])` | Restricts aggregation to identifiable customers | Missingness is not quantified or shown to be unbiased |
+| `query('Quantity > 0')` | Excludes nonpositive quantities | Cancellation prefixes are not inspected; earlier purchases are not reconciled with returns |
+| `Quantity * Price` | Creates each retained line's value | Zero, negative, or missing prices are not checked |
+| `pd.to_datetime(InvoiceDate)` | Converts timestamps before aggregation | No explicit date format, timezone, or invalid-date policy is recorded |
+
+Positive quantity alone is an incomplete definition of a completed purchase. The code's filter may remove ordinary negative-quantity cancellation rows, but the absent CSV prevents checking whether every cancellation is covered. Likewise, duplicates are neither counted nor removed: their effect on spend is unknown. No row-retention counts or cleaning diagnostics are saved. See [the exact operations](customer_segmentation_rfm_clustering.py#L15).
+
 ## RFM Feature Engineering
 
 The snapshot is the maximum retained invoice timestamp plus one day. Grouping by `Customer ID` produces one RFM row per customer, using the latest timestamp, unique invoice count, and summed line values. Only the first five RFM rows are saved; a full profile export is absent.
