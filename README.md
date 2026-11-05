@@ -167,6 +167,15 @@ The original charts do not prove a unique optimum: the elbow requires judgment a
 
 The plots show IDs 0-3 for each algorithm, but the repository saves no cluster counts, centroids, or full RFM summaries. Persona names and numeric marketing thresholds therefore remain hypotheses. Cluster IDs are arbitrary and do not identify matching groups across algorithms.
 
+| K-Means group | Visible Recency/Monetary tendency | Count and Frequency profile |
+|---|---|---|
+| 0, red | Recent purchases; lower-to-middle spend | Not saved |
+| 1, blue | Lower spend; broad recency range | Not saved |
+| 2, green | Higher spend; predominantly recent purchases | Not saved |
+| 3, purple | Middle-to-higher spend; broader recency range | Not saved |
+
+These observations come only from the original scatterplot and describe overlapping tendencies. The chart omits Frequency, so it cannot establish loyalty. The previous VIP, regular, new-buyer, and lost-customer personas are not verified learned labels. [Segment evidence and business hypotheses](docs/SEGMENTS.md) includes both algorithms and the additional evidence needed for responsible naming.
+
 ## Visual Analysis
 
 The repository preserves three original charts: [elbow](images/elbow_method.png), [dendrogram](images/dendrogram.png), and [cluster comparison](images/cluster_comparison.png). They visualize model diagnostics and a two-feature projection of the fitted partitions.
@@ -190,7 +199,8 @@ Customer-Segmentation-RFM/
 |   |-- DATASET.md
 |   |-- EVALUATION.md
 |   |-- EVIDENCE.md
-|   `-- RFM_METHOD.md
+|   |-- RFM_METHOD.md
+|   `-- SEGMENTS.md
 |-- LICENSE
 `-- README.md
 ```
