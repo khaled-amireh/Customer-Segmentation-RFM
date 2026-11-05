@@ -52,6 +52,8 @@ The [upstream UCI record](https://archive.ics.uci.edu/dataset/502/online+retail+
 
 RFM describes observed behavior within the input window. It does not establish customer intent or future value.
 
+This implementation uses continuous RFM features, rather than quartile scores or concatenated RFM codes. Frequency counts unique invoice IDs, so several product lines on one invoice count once. Monetary still sums every retained line. The [RFM methodology reference](docs/RFM_METHOD.md) defines the formulas, pandas defaults, and interpretation boundaries.
+
 ## Data Cleaning
 
 The original code drops missing `Customer ID` rows and retains `Quantity > 0`. It computes `TotalPrice` and parses `InvoiceDate`. There is no explicit invoice-prefix cancellation check, duplicate removal, or positive-price filter.
@@ -127,7 +129,8 @@ Customer-Segmentation-RFM/
 |   `-- elbow_method.png
 |-- docs/
 |   |-- DATASET.md
-|   `-- EVIDENCE.md
+|   |-- EVIDENCE.md
+|   `-- RFM_METHOD.md
 |-- LICENSE
 `-- README.md
 ```
