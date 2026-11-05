@@ -71,6 +71,20 @@ Positive quantity alone is an incomplete definition of a completed purchase. The
 
 The snapshot is the maximum retained invoice timestamp plus one day. Grouping by `Customer ID` produces one RFM row per customer, using the latest timestamp, unique invoice count, and summed line values. Only the first five RFM rows are saved; a full profile export is absent.
 
+The [saved preview in notebook cell 6](customer_segmentation_rfm_clustering.ipynb) contains these actual rows:
+
+| Customer ID | Recency, days | Frequency, distinct invoices | Monetary, source currency |
+|---|---:|---:|---:|
+| 12346.0 | 326 | 12 | 77,556.46 |
+| 12347.0 | 2 | 8 | 5,633.32 |
+| 12348.0 | 75 | 5 | 2,019.40 |
+| 12349.0 | 19 | 4 | 4,428.69 |
+| 12350.0 | 310 | 1 | 334.40 |
+
+These are the first five customer-indexed rows, **not cluster means or representative samples**. Recency uses elapsed whole days from a shared timestamp, with fractional days discarded. The exact snapshot timestamp is not saved. The operation is described precisely in [RFM methodology](docs/RFM_METHOD.md#definitions).
+
+After fitting, two label columns are attached to this raw-unit table. They do not enter the clustering matrix: `X_scaled` was already created from the three original features. No customer tenure or first-purchase date is calculated, so a recent low-frequency customer cannot automatically be called a new buyer.
+
 ## Data Transformations and Scaling
 
 `np.log1p(rfm)` transforms **all three features**, followed by a single `StandardScaler.fit_transform`. Both algorithms consume the same `X_scaled` matrix. Log compression and standardization do not establish robustness to extreme customers.
