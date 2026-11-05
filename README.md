@@ -204,6 +204,16 @@ The [visual analysis guide](docs/VISUAL_GUIDE.md) explains axes, source location
 
 Invoice-based Frequency and a shared transformed matrix align with the stated RFM comparison. Important limits remain: missing input provenance, incomplete validation of cancellations and prices, no duplicate policy, unknown package versions, and no stability or campaign evidence. The model fits and evaluates the same customer snapshot.
 
+| Decision | Why it is useful | Practical limitation |
+|---|---|---|
+| Three interpretable behavioral features | Keeps distance-based segmentation explainable | Omits tenure, margin, products, and channel |
+| Distinct invoices for Frequency | Separates order activity from basket line count | Missing invoice IDs and reversals need explicit policies |
+| Shared log-scaled features | Makes the two model fits comparable | Feature correlations and extremes may still influence distances |
+| Ward and K-Means comparison | Contrasts two compact-group approaches | Does not explore arbitrary cluster shapes or establish stability |
+| Internal metrics on the fitted snapshot | Gives a consistent descriptive comparison | Does not estimate future performance or campaign value |
+
+The [read-only code audit](docs/CODE_AUDIT.md) records **3 High, 6 Medium, and 2 Low findings**, with no Critical defect established. It distinguishes confirmed omissions from data-dependent risks and unsupported claims, gives exact source locations, and proposes minimal corrections without changing the implementation.
+
 ## Repository Structure
 
 ```text
@@ -216,6 +226,7 @@ Customer-Segmentation-RFM/
 |   |-- dendrogram.png
 |   `-- elbow_method.png
 |-- docs/
+|   |-- CODE_AUDIT.md
 |   |-- DATASET.md
 |   |-- EVALUATION.md
 |   |-- EVIDENCE.md
