@@ -89,6 +89,16 @@ After fitting, two label columns are attached to this raw-unit table. They do no
 
 `np.log1p(rfm)` transforms **all three features**, followed by a single `StandardScaler.fit_transform`. Both algorithms consume the same `X_scaled` matrix. Log compression and standardization do not establish robustness to extreme customers.
 
+For each feature value `x`, the pipeline first computes `u = log(1 + x)` and then `z = (u - mean(u)) / std(u)` using the retained customer population. This compresses large raw differences and makes each transformed feature contribute on a comparable variance scale. Recency is transformed too; the code does not invert its direction or give any feature a manual weight.
+
+| Design choice | Benefit | Remaining boundary |
+|---|---|---|
+| Log all RFM columns | Compresses large magnitudes before distance calculations | No saved before/after skewness assessment |
+| Fit one scaler before both models | Keeps model comparison in the same feature geometry | It is fit on the same snapshot used for evaluation |
+| Preserve `rfm`; build `X_scaled` separately | Supports raw-unit plotting after fitting | Full raw-unit cluster summaries are not saved |
+
+Real-valued `log1p` requires values greater than -1; an aggregate at -1 produces negative infinity and values below -1 are invalid. The original pipeline has no finite-value check before fitting. Zero spend transforms to zero, but is not thereby a validated purchase. [StandardScaler is sensitive to outliers](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html), so log compression should be evaluated rather than described as eliminating their influence. See [script lines 28-31](customer_segmentation_rfm_clustering.py#L28).
+
 ## Machine Learning Architecture
 
 ```mermaid
