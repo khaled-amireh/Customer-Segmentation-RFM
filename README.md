@@ -145,6 +145,16 @@ A fixed seed controls initialization within a given environment; it does not dem
 
 SciPy builds the Ward dendrogram from `X_scaled`. A separate scikit-learn `AgglomerativeClustering(n_clusters=4, metric='euclidean', linkage='ward')` fit generates hierarchical labels. The notebook does not cut the SciPy tree to obtain those labels.
 
+Ward linkage merges groups to limit the increase in within-cluster variance. The dendrogram and agglomerative fit use the same transformed customer matrix and a consistent Ward/Euclidean setup. This is a meaningful comparison with K-Means, but the two methods share a preference for compact groups; their diagnostics are not independent confirmation of a unique natural segmentation.
+
+| Component | Implementation | Interpretation |
+|---|---|---|
+| Tree diagnostic | `sch.linkage(X_scaled, method='ward')` | Full merge hierarchy of customer vectors |
+| Display | `sch.dendrogram(...)` | Merge heights; no explicit four-group cut line |
+| Final labels | Separate four-cluster agglomerative fit | Stored in `Cluster_Hierarchical` |
+
+The [SciPy linkage documentation](https://docs.scipy.org/doc/scipy/reference/generated/scipy.cluster.hierarchy.linkage.html) describes quadratic memory use for linkage. The relevant population is aggregated customers, not raw invoice lines; its exact size is not saved. The full dendrogram also has dense, unreadable leaf labels at the existing image size. The `metric` keyword requires [scikit-learn 1.2 or later](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.AgglomerativeClustering.html); this is an API requirement, not evidence of the historical version. Source: [tree](customer_segmentation_rfm_clustering.py#L35) and [label fit](customer_segmentation_rfm_clustering.py#L63).
+
 ## Cluster Selection and Evaluation
 
 The saved metrics favor K-Means on silhouette and hierarchical clustering on Davies-Bouldin. Neither algorithm dominates both measures. Four clusters are a configured exploratory choice; there is no saved silhouette sweep across K or stability experiment.
